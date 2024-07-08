@@ -15,6 +15,9 @@ class CreateBreaktimesTable extends Migration
     {
         Schema::create('breaktimes', function (Blueprint $table) {
             $table->id();
+            $table->atendance_id();
+            $table->break_start_time();
+            $table->break_end_time();
             $table->timestamps();
         });
     }
