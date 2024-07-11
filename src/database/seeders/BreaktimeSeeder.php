@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Breaktime;
 use Illuminate\Database\Seeder;
 
 class BreaktimeSeeder extends Seeder
@@ -13,6 +14,6 @@ class BreaktimeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Breaktime::factory()->count(10)->create();
     }
 }

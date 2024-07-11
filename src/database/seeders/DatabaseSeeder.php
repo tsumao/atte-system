@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\Schema;
+use App\Models\User;
+use App\Models\Attendance;
+use App\Models\Breaktime;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,8 +15,23 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+    protected $toTruncates = [
+        User::class,
+        Attendance::class,
+        Breaktime::class
+    ];
+
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Schema::disableForeignKeyConstraints();
+        foreach ($this->toTruncates as $model) {
+            $model::truncate();
+        }
+
+        $this->call(UserSeeder::class);
+        $this->call(AttendanceSeeder::class);
+        $this->call(BreaktimeSeeder::class);
+
+        Schema::enableForeignKeyConstraints();
     }
 }
