@@ -18,9 +18,10 @@ class AttendanceFactory extends Factory
     {
         $userIds = User::pluck('id');
         return [
-            'atendance_id' => $this->faker->randomElement($userIds),
-            'break_start_time' => $this->faker->time(),
-            'break_end_time' => $this->faker->time()
+            'user_id' => $this->faker->randomElement($userIds),
+            'date' => $this->faker->date(),
+            'attendance_time' => $this->faker->time(),
+            'depature_time' => $this->faker->time()
         ];
     }
 }

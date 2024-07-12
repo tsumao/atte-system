@@ -18,7 +18,7 @@ class BreaktimeFactory extends Factory
     {
         $attendIds = Attendance::pluck('id');
         return [
-            'atendance_id' => $this->faker->randomElement($attendIds),
+            'attendance_id' => $this->faker->randomElement($attendIds),
             'break_start_time' => $this->faker->time(),
             'break_end_time' => $this->faker->time()
         ];
